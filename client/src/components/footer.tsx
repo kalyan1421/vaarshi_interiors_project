@@ -14,11 +14,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2 animate-slide-in-left">
-            <div className="font-bold text-3xl mb-4 animate-slide-up">
-              <span className="text-soft-stone drop-shadow-lg">
-                Vaarahi
-              </span>
-              <span className="ml-2 text-pure-white">Interiors</span>
+            <div className="font-bold text-2xl mb-4 animate-slide-up">
+              <span className="text-soft-stone bg-gradient-to-r from-soft-stone to-warm-accent bg-clip-text text-transparent">Vaarahi</span> Interiors
             </div>
             <p className="text-pure-white/70 mb-6 max-w-md animate-fade-in animate-delay-200">
               Transforming spaces with premium interior design solutions. Led by experienced professionals committed to quality and excellence.
