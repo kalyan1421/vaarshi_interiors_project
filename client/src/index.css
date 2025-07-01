@@ -29,6 +29,11 @@
   --soft-stone: hsl(23, 23%, 64%);
   --deep-charcoal: hsl(0, 0%, 17.3%);
   --warm-accent: hsl(30, 42%, 69%);
+  
+  /* Exact brand colors */
+  --brand-pure-white: #FEFEFE;
+  --brand-soft-stone: #A39081;
+  --brand-deep-charcoal: #2C2C2C;
 }
 
 .dark {
@@ -88,15 +93,15 @@
   }
   
   .text-pure-white {
-    color: hsl(var(--pure-white));
+    color: var(--brand-pure-white);
   }
   
   .text-soft-stone {
-    color: hsl(var(--soft-stone));
+    color: var(--brand-soft-stone);
   }
   
   .text-deep-charcoal {
-    color: hsl(var(--deep-charcoal));
+    color: var(--brand-deep-charcoal);
   }
   
   .text-warm-accent {
@@ -104,15 +109,15 @@
   }
   
   .bg-pure-white {
-    background-color: hsl(var(--pure-white));
+    background-color: var(--brand-pure-white);
   }
   
   .bg-soft-stone {
-    background-color: hsl(var(--soft-stone));
+    background-color: var(--brand-soft-stone);
   }
   
   .bg-deep-charcoal {
-    background-color: hsl(var(--deep-charcoal));
+    background-color: var(--brand-deep-charcoal);
   }
   
   .bg-warm-accent {
@@ -120,7 +125,7 @@
   }
   
   .border-soft-stone {
-    border-color: hsl(var(--soft-stone));
+    border-color: var(--brand-soft-stone);
   }
   
   .hover\:bg-warm-accent:hover {
@@ -128,10 +133,127 @@
   }
   
   .hover\:text-soft-stone:hover {
-    color: hsl(var(--soft-stone));
+    color: var(--brand-soft-stone);
   }
   
   .hover\:text-warm-accent:hover {
     color: hsl(var(--warm-accent));
+  }
+  
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+  }
+  
+  .animate-scale-up {
+    animation: scaleUp 0.6s ease-out;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.8s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleUp {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Stagger animation delays */
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 0.5s;
   }
 }

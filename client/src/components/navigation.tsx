@@ -34,8 +34,8 @@ export default function Navigation() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="font-bold text-2xl text-deep-charcoal">
-            <span className="text-soft-stone">Vaarahi</span> Interiors
+          <div className="font-bold text-2xl text-deep-charcoal animate-slide-in-left">
+            <span className="text-soft-stone bg-gradient-to-r from-soft-stone to-warm-accent bg-clip-text text-transparent animate-pulse">Vaarahi</span> Interiors
           </div>
           
           <div className="hidden md:flex space-x-8">

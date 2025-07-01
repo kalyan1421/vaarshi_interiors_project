@@ -52,9 +52,9 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-20 bg-soft-stone/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-bold text-4xl text-deep-charcoal mb-4">Our Portfolio</h2>
-          <p className="text-xl text-deep-charcoal/80 max-w-3xl mx-auto">
+        <div className="text-center mb-16 animate-slide-up">
+          <h2 className="font-bold text-4xl text-deep-charcoal mb-4 animate-fade-in">Our Portfolio</h2>
+          <p className="text-xl text-deep-charcoal/80 max-w-3xl mx-auto animate-slide-up animate-delay-200">
             Explore our carefully curated collection of residential and modular interior design projects.
           </p>
         </div>
@@ -63,7 +63,8 @@ export default function PortfolioSection() {
           {portfolioItems.map((item, index) => (
             <div 
               key={index}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover-lift cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl shadow-lg hover-lift cursor-pointer animate-scale-up transition-all duration-500 hover:shadow-2xl hover:scale-105"
+              style={{ animationDelay: `${index * 150}ms` }}
               onClick={() => setSelectedImage(item.src)}
             >
               <img 
@@ -71,19 +72,24 @@ export default function PortfolioSection() {
                 alt={item.alt}
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-center text-pure-white">
-                  <Search className="w-8 h-8 mb-2 mx-auto" />
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-sm opacity-90">{item.category}</p>
+              <div className="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                <div className="text-center text-pure-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <Search className="w-8 h-8 mb-2 mx-auto animate-bounce-in" />
+                  <h3 className="font-semibold text-lg animate-slide-up">{item.title}</h3>
+                  <p className="text-sm opacity-90 animate-fade-in animate-delay-100">{item.category}</p>
+                </div>
+              </div>
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-soft-stone/20 backdrop-blur-sm rounded-full p-2 animate-scale-up">
+                  <Search className="w-4 h-4 text-pure-white" />
                 </div>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <Button className="bg-soft-stone text-pure-white px-8 py-4 rounded-lg font-semibold hover:bg-warm-accent transition-colors duration-300">
+        <div className="text-center mt-12 animate-slide-up animate-delay-500">
+          <Button className="bg-soft-stone text-pure-white px-8 py-4 rounded-lg font-semibold hover:bg-warm-accent transition-all duration-300 hover:scale-105 hover:shadow-lg animate-bounce-in">
             View All Projects
           </Button>
         </div>

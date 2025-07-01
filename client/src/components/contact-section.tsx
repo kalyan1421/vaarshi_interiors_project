@@ -89,26 +89,26 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-bold text-4xl text-deep-charcoal mb-4">Get Your Free Quotation</h2>
-          <p className="text-xl text-deep-charcoal/80 max-w-3xl mx-auto">
+        <div className="text-center mb-16 animate-slide-up">
+          <h2 className="font-bold text-4xl text-deep-charcoal mb-4 animate-fade-in">Get Your Free Quotation</h2>
+          <p className="text-xl text-deep-charcoal/80 max-w-3xl mx-auto animate-slide-up animate-delay-200">
             Ready to transform your space? Contact us today for a comprehensive consultation and detailed quotation.
           </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-16">
-          <div className="space-y-8">
+          <div className="space-y-8 animate-slide-in-left">
             <div className="space-y-6">
-              <h3 className="font-semibold text-2xl text-deep-charcoal">Get In Touch</h3>
-              <p className="text-deep-charcoal/70">
+              <h3 className="font-semibold text-2xl text-deep-charcoal animate-slide-up">Get In Touch</h3>
+              <p className="text-deep-charcoal/70 animate-fade-in animate-delay-200">
                 Contact our team for personalized consultation and free quotation. We're here to bring your vision to life.
               </p>
             </div>
             
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-soft-stone rounded-xl flex items-center justify-center">
+                <div key={index} className={`flex items-center space-x-4 animate-slide-in-left animate-delay-${(index + 3) * 100} hover:bg-soft-stone/5 p-4 rounded-lg transition-all duration-300`}>
+                  <div className="w-12 h-12 bg-soft-stone rounded-xl flex items-center justify-center animate-scale-up hover:scale-110 transition-transform duration-300">
                     <info.icon className="w-6 h-6 text-pure-white" />
                   </div>
                   <div>
@@ -119,13 +119,13 @@ export default function ContactSection() {
               ))}
             </div>
             
-            <Card className="bg-soft-stone/10">
+            <Card className="bg-soft-stone/10 animate-scale-up animate-delay-400 hover:shadow-lg transition-all duration-300">
               <CardContent className="p-6">
                 <h4 className="font-semibold text-deep-charcoal mb-2">Why Choose Our Free Quotation?</h4>
                 <ul className="space-y-2 text-deep-charcoal/70">
                   {quotationBenefits.map((benefit, index) => (
-                    <li key={index} className="flex items-center space-x-2">
-                      <Check className="w-4 h-4 text-soft-stone" />
+                    <li key={index} className={`flex items-center space-x-2 animate-slide-in-left animate-delay-${(index + 5) * 100}`}>
+                      <Check className="w-4 h-4 text-soft-stone animate-scale-up" />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -134,7 +134,7 @@ export default function ContactSection() {
             </Card>
           </div>
           
-          <Card className="shadow-lg">
+          <Card className="shadow-lg animate-slide-in-right hover:shadow-2xl transition-all duration-300">
             <CardContent className="p-8">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -143,10 +143,10 @@ export default function ContactSection() {
                       control={form.control}
                       name="firstName"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="animate-slide-up animate-delay-100">
                           <FormLabel>First Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Enter your first name" {...field} />
+                            <Input placeholder="Enter your first name" className="transition-all duration-300 focus:scale-105" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -156,10 +156,10 @@ export default function ContactSection() {
                       control={form.control}
                       name="lastName"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="animate-slide-up animate-delay-200">
                           <FormLabel>Last Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Enter your last name" {...field} />
+                            <Input placeholder="Enter your last name" className="transition-all duration-300 focus:scale-105" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -171,10 +171,10 @@ export default function ContactSection() {
                     control={form.control}
                     name="phone"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="animate-slide-up animate-delay-300">
                         <FormLabel>Phone Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="Enter your phone number" {...field} />
+                          <Input placeholder="Enter your phone number" className="transition-all duration-300 focus:scale-105" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -185,10 +185,10 @@ export default function ContactSection() {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="animate-slide-up animate-delay-400">
                         <FormLabel>Email Address</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="Enter your email address" {...field} />
+                          <Input type="email" placeholder="Enter your email address" className="transition-all duration-300 focus:scale-105" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -199,11 +199,11 @@ export default function ContactSection() {
                     control={form.control}
                     name="projectType"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="animate-slide-up animate-delay-500">
                         <FormLabel>Project Type</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger>
+                            <SelectTrigger className="transition-all duration-300 focus:scale-105">
                               <SelectValue placeholder="Select project type" />
                             </SelectTrigger>
                           </FormControl>
@@ -223,12 +223,12 @@ export default function ContactSection() {
                     control={form.control}
                     name="message"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="animate-slide-up animate-delay-600">
                         <FormLabel>Project Details</FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="Tell us about your project requirements..."
-                            className="min-h-[100px]"
+                            className="min-h-[100px] transition-all duration-300 focus:scale-105"
                             {...field}
                           />
                         </FormControl>
@@ -239,7 +239,7 @@ export default function ContactSection() {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-soft-stone text-pure-white px-8 py-4 rounded-lg font-semibold hover:bg-warm-accent transition-colors duration-300"
+                    className="w-full bg-soft-stone text-pure-white px-8 py-4 rounded-lg font-semibold hover:bg-warm-accent transition-all duration-300 hover:scale-105 hover:shadow-lg animate-bounce-in animate-delay-700"
                     disabled={contactMutation.isPending}
                   >
                     {contactMutation.isPending ? "Submitting..." : "Request Free Quotation"}
