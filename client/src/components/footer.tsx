@@ -14,8 +14,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2 animate-slide-in-left">
-            <div className="font-bold text-2xl mb-4 animate-slide-up">
-              <span className="text-soft-stone bg-gradient-to-r from-soft-stone to-warm-accent bg-clip-text text-transparent">Vaarahi</span> Interiors
+            <div className="font-bold text-3xl mb-4 animate-slide-up relative group cursor-pointer">
+              <span className="text-soft-stone bg-gradient-to-r from-soft-stone via-warm-accent to-soft-stone bg-clip-text text-transparent drop-shadow-lg relative z-10">
+                Vaarahi
+              </span>
+              <span className="ml-2 text-pure-white group-hover:text-soft-stone transition-colors duration-300">Interiors</span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-soft-stone/20 to-warm-accent/20 rounded-lg blur-sm opacity-50 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
             </div>
             <p className="text-pure-white/70 mb-6 max-w-md animate-fade-in animate-delay-200">
               Transforming spaces with premium interior design solutions. Led by experienced professionals committed to quality and excellence.

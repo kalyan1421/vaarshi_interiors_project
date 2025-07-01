@@ -34,8 +34,14 @@ export default function Navigation() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="font-bold text-2xl text-deep-charcoal animate-slide-in-left">
-            <span className="text-soft-stone bg-gradient-to-r from-soft-stone to-warm-accent bg-clip-text text-transparent animate-pulse">Vaarahi</span> Interiors
+          <div className="font-bold text-3xl text-deep-charcoal animate-slide-in-left relative group cursor-pointer brand-highlight">
+            <span className="text-soft-stone bg-gradient-to-r from-soft-stone via-warm-accent to-soft-stone bg-clip-text text-transparent animate-pulse relative z-10 drop-shadow-lg brand-glow group-hover:scale-110 transition-transform duration-300 inline-block">
+              Vaarahi
+            </span>
+            <span className="ml-2 text-deep-charcoal group-hover:text-soft-stone transition-all duration-300 group-hover:scale-105 inline-block">Interiors</span>
+            <div className="absolute -inset-2 bg-gradient-to-r from-soft-stone/30 to-warm-accent/30 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-soft-stone via-warm-accent to-soft-stone group-hover:w-full transition-all duration-700 rounded-full shadow-lg"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-soft-stone/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
           </div>
           
           <div className="hidden md:flex space-x-8">
