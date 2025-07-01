@@ -1,21 +1,15 @@
+import { smoothScrollTo } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Award } from "lucide-react";
 
 export default function HeroSection() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center hero-pattern pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="font-poppins text-5xl md:text-6xl font-bold text-deep-charcoal leading-tight">
+              <h1 className="font-bold text-5xl md:text-6xl text-deep-charcoal leading-tight">
                 Premium Interior
                 <span className="text-soft-stone block">Design Solutions</span>
               </h1>
@@ -26,17 +20,15 @@ export default function HeroSection() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                size="lg"
-                className="bg-soft-stone text-pure-white hover:bg-warm-accent"
-                onClick={() => scrollToSection('contact')}
+                className="bg-soft-stone text-pure-white px-8 py-4 rounded-lg font-semibold hover:bg-warm-accent transition-colors duration-300"
+                onClick={() => smoothScrollTo('contact')}
               >
                 Get Free Quotation
               </Button>
               <Button 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-soft-stone text-soft-stone hover:bg-soft-stone hover:text-pure-white"
-                onClick={() => scrollToSection('portfolio')}
+                variant="outline"
+                className="border-2 border-soft-stone text-soft-stone px-8 py-4 rounded-lg font-semibold hover:bg-soft-stone hover:text-pure-white transition-all duration-300"
+                onClick={() => smoothScrollTo('portfolio')}
               >
                 View Portfolio
               </Button>
@@ -44,15 +36,15 @@ export default function HeroSection() {
             
             <div className="flex items-center space-x-8 pt-4">
               <div className="text-center">
-                <div className="font-poppins text-3xl font-bold text-soft-stone">13</div>
+                <div className="font-bold text-3xl text-soft-stone">13</div>
                 <div className="text-sm text-deep-charcoal/70">Residential Projects</div>
               </div>
               <div className="text-center">
-                <div className="font-poppins text-3xl font-bold text-soft-stone">4</div>
+                <div className="font-bold text-3xl text-soft-stone">4</div>
                 <div className="text-sm text-deep-charcoal/70">Modular Projects</div>
               </div>
               <div className="text-center">
-                <div className="font-poppins text-3xl font-bold text-soft-stone">100%</div>
+                <div className="font-bold text-3xl text-soft-stone">100%</div>
                 <div className="text-sm text-deep-charcoal/70">Quality Assured</div>
               </div>
             </div>
@@ -66,7 +58,7 @@ export default function HeroSection() {
             />
             <div className="absolute -bottom-6 -right-6 bg-soft-stone text-pure-white p-6 rounded-xl shadow-lg">
               <div className="flex items-center space-x-3">
-                <Award className="h-8 w-8" />
+                <Award className="w-8 h-8" />
                 <div>
                   <div className="font-semibold">Premium Quality</div>
                   <div className="text-sm opacity-90">Guaranteed</div>

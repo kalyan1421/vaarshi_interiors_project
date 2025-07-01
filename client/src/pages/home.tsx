@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <div className="scroll-smooth">
+    <div className="min-h-screen bg-pure-white text-deep-charcoal scroll-smooth">
       <Navigation />
       <HeroSection />
       <AboutSection />

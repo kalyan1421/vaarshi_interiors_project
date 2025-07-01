@@ -3,53 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --pure-white: hsl(0, 0%, 99.6%);
-  --soft-stone: hsl(30, 14%, 69%);
-  --deep-charcoal: hsl(0, 0%, 17%);
-  --warm-accent: hsl(34, 24%, 69%);
+  --background: hsl(0, 0%, 99.6%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(23, 23%, 64%);
+  --primary-foreground: hsl(0, 0%, 99.6%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
   
-  --background: var(--pure-white);
-  --foreground: var(--deep-charcoal);
-  --muted: hsl(30, 10%, 95%);
-  --muted-foreground: hsl(30, 5%, 45%);
-  --popover: var(--pure-white);
-  --popover-foreground: var(--deep-charcoal);
-  --card: var(--pure-white);
-  --card-foreground: var(--deep-charcoal);
-  --border: hsl(30, 15%, 85%);
-  --input: hsl(30, 15%, 85%);
-  --primary: var(--soft-stone);
-  --primary-foreground: var(--pure-white);
-  --secondary: hsl(30, 10%, 95%);
-  --secondary-foreground: var(--deep-charcoal);
-  --accent: hsl(30, 10%, 95%);
-  --accent-foreground: var(--deep-charcoal);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: var(--pure-white);
-  --ring: var(--soft-stone);
-  --radius: 0.75rem;
+  /* Custom colors for Vaarahi Interiors */
+  --pure-white: hsl(0, 0%, 99.6%);
+  --soft-stone: hsl(23, 23%, 64%);
+  --deep-charcoal: hsl(0, 0%, 17.3%);
+  --warm-accent: hsl(30, 42%, 69%);
 }
 
 .dark {
-  --background: var(--deep-charcoal);
-  --foreground: var(--pure-white);
-  --muted: hsl(0, 0%, 25%);
-  --muted-foreground: hsl(0, 0%, 65%);
-  --popover: var(--deep-charcoal);
-  --popover-foreground: var(--pure-white);
-  --card: var(--deep-charcoal);
-  --card-foreground: var(--pure-white);
-  --border: hsl(0, 0%, 35%);
-  --input: hsl(0, 0%, 35%);
-  --primary: var(--soft-stone);
-  --primary-foreground: var(--deep-charcoal);
-  --secondary: hsl(0, 0%, 25%);
-  --secondary-foreground: var(--pure-white);
-  --accent: hsl(0, 0%, 25%);
-  --accent-foreground: var(--pure-white);
-  --destructive: hsl(0, 62%, 30%);
-  --destructive-foreground: var(--pure-white);
-  --ring: var(--soft-stone);
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(23, 23%, 64%);
+  --primary-foreground: hsl(0, 0%, 99.6%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
 }
 
 @layer base {
@@ -58,29 +59,19 @@
   }
 
   body {
-    @apply font-inter antialiased bg-background text-foreground;
-    color: var(--deep-charcoal);
-    background-color: var(--pure-white);
-  }
-
-  .font-poppins {
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .font-inter {
-    font-family: 'Inter', sans-serif;
+    @apply font-sans antialiased bg-background text-foreground;
   }
 }
 
 @layer utilities {
   .hero-pattern {
-    background-image: radial-gradient(circle at 25% 25%, rgba(163, 144, 129, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 75% 75%, rgba(163, 144, 129, 0.05) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 25% 25%, hsla(23, 23%, 64%, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, hsla(23, 23%, 64%, 0.05) 0%, transparent 50%);
   }
   
   .glass-effect {
     backdrop-filter: blur(10px);
-    background: rgba(254, 254, 254, 0.9);
+    background: hsla(0, 0%, 99.6%, 0.9);
   }
   
   .hover-lift {
@@ -89,62 +80,58 @@
   
   .hover-lift:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(44, 44, 44, 0.1);
+    box-shadow: 0 20px 40px hsla(0, 0%, 17.3%, 0.1);
   }
   
   .portfolio-overlay {
-    background: linear-gradient(45deg, rgba(163, 144, 129, 0.9), rgba(44, 44, 44, 0.7));
+    background: linear-gradient(45deg, hsla(23, 23%, 64%, 0.9), hsla(0, 0%, 17.3%, 0.7));
   }
-
+  
   .text-pure-white {
-    color: var(--pure-white);
+    color: hsl(var(--pure-white));
   }
-
+  
   .text-soft-stone {
-    color: var(--soft-stone);
+    color: hsl(var(--soft-stone));
   }
-
+  
   .text-deep-charcoal {
-    color: var(--deep-charcoal);
+    color: hsl(var(--deep-charcoal));
   }
-
+  
   .text-warm-accent {
-    color: var(--warm-accent);
+    color: hsl(var(--warm-accent));
   }
-
+  
   .bg-pure-white {
-    background-color: var(--pure-white);
+    background-color: hsl(var(--pure-white));
   }
-
+  
   .bg-soft-stone {
-    background-color: var(--soft-stone);
+    background-color: hsl(var(--soft-stone));
   }
-
+  
   .bg-deep-charcoal {
-    background-color: var(--deep-charcoal);
+    background-color: hsl(var(--deep-charcoal));
   }
-
+  
   .bg-warm-accent {
-    background-color: var(--warm-accent);
+    background-color: hsl(var(--warm-accent));
   }
-
+  
   .border-soft-stone {
-    border-color: var(--soft-stone);
+    border-color: hsl(var(--soft-stone));
   }
-
+  
   .hover\:bg-warm-accent:hover {
-    background-color: var(--warm-accent);
+    background-color: hsl(var(--warm-accent));
   }
-
+  
   .hover\:text-soft-stone:hover {
-    color: var(--soft-stone);
+    color: hsl(var(--soft-stone));
   }
-
+  
   .hover\:text-warm-accent:hover {
-    color: var(--warm-accent);
+    color: hsl(var(--warm-accent));
   }
-}
-
-.scroll-smooth {
-  scroll-behavior: smooth;
 }

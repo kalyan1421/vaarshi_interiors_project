@@ -1,18 +1,19 @@
-import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useState, useEffect } from "react";
+import { smoothScrollTo } from "@/lib/utils";
+import { Phone, Menu, X } from "lucide-react";
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { label: "Home", id: "home" },
@@ -22,11 +23,18 @@ export default function Navigation() {
     { label: "Contact", id: "contact" },
   ];
 
+  const handleNavClick = (id: string) => {
+    smoothScrollTo(id);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <nav className="fixed top-0 w-full z-50 glass-effect border-b border-soft-stone/20">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'glass-effect border-b border-soft-stone/20' : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="font-poppins font-bold text-2xl text-deep-charcoal">
+          <div className="font-bold text-2xl text-deep-charcoal">
             <span className="text-soft-stone">Vaarahi</span> Interiors
           </div>
           
@@ -34,8 +42,8 @@ export default function Navigation() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-deep-charcoal hover:text-soft-stone transition-colors duration-300"
+                onClick={() => handleNavClick(item.id)}
+                className="hover:text-soft-stone transition-colors duration-300"
               >
                 {item.label}
               </button>
@@ -43,52 +51,43 @@ export default function Navigation() {
           </div>
           
           <div className="flex items-center space-x-4">
-            <a
-              href="tel:6304446003"
+            <a 
+              href="tel:6304446003" 
               className="hidden sm:flex items-center space-x-2 text-soft-stone hover:text-warm-accent transition-colors"
             >
-              <Phone className="h-4 w-4" />
+              <Phone className="w-4 h-4" />
               <span className="font-medium">6304446003</span>
             </a>
-            
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-80">
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navItems.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => scrollToSection(item.id)}
-                      className="text-left text-lg text-deep-charcoal hover:text-soft-stone transition-colors py-2"
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                  <div className="pt-4 border-t">
-                    <a
-                      href="tel:6304446003"
-                      className="flex items-center space-x-2 text-soft-stone hover:text-warm-accent transition-colors py-2"
-                    >
-                      <Phone className="h-4 w-4" />
-                      <span>6304446003</span>
-                    </a>
-                    <a
-                      href="tel:9955998865"
-                      className="flex items-center space-x-2 text-soft-stone hover:text-warm-accent transition-colors py-2"
-                    >
-                      <Phone className="h-4 w-4" />
-                      <span>9955998865</span>
-                    </a>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <button 
+              className="md:hidden text-deep-charcoal"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-pure-white border-t border-soft-stone/20 py-4">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="block w-full text-left py-2 px-4 hover:bg-soft-stone/10 hover:text-soft-stone transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+            <a 
+              href="tel:6304446003" 
+              className="flex items-center space-x-2 py-2 px-4 text-soft-stone sm:hidden"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="font-medium">6304446003</span>
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );
