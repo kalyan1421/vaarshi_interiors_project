@@ -35,7 +35,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="font-bold text-3xl text-deep-charcoal animate-slide-in-left relative group cursor-pointer">
-            <span className="text-soft-stone bg-gradient-to-r from-soft-stone via-warm-accent to-soft-stone bg-clip-text text-transparent animate-pulse relative z-10 drop-shadow-lg brand-glow group-hover:scale-110 transition-transform duration-300 inline-block">
+            <span className="text-soft-stone animate-pulse relative z-10 drop-shadow-lg brand-glow group-hover:scale-110 transition-transform duration-300 inline-block">
               Vaarahi
             </span>
             <span className="ml-2 text-deep-charcoal">Interiors</span>

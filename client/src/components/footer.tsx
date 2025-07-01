@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2 animate-slide-in-left">
             <div className="font-bold text-3xl mb-4 animate-slide-up">
-              <span className="text-soft-stone bg-gradient-to-r from-soft-stone via-warm-accent to-soft-stone bg-clip-text text-transparent drop-shadow-lg">
+              <span className="text-soft-stone drop-shadow-lg">
                 Vaarahi
               </span>
               <span className="ml-2 text-pure-white">Interiors</span>
