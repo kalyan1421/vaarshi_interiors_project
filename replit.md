@@ -1,8 +1,8 @@
-# Vaarahi Interiors - Interior Design Portfolio Website
+# Velanspaces Interior and constructions - Interior Design Portfolio Website
 
 ## Overview
 
-This is a full-stack web application for Vaarahi Interiors, a premium interior design company. The application serves as a business portfolio website showcasing their residential and modular interior design projects, with a focus on modern minimalist aesthetics. The site features a contact form for customer inquiries and displays the company's completed projects and services.
+This is a full-stack web application for Velanspaces Interior and constructions, a premium interior design company. The application serves as a business portfolio website showcasing their residential and modular interior design projects, with a focus on modern minimalist aesthetics. The site features a contact form for customer inquiries and displays the company's completed projects and services.
 
 ## System Architecture
 
@@ -96,7 +96,7 @@ This is a full-stack web application for Vaarahi Interiors, a premium interior d
 Changelog:
 - July 01, 2025. Initial setup
 - July 01, 2025. Updated brand colors to exact specifications (#FEFEFE, #A39081, #2C2C2C)
-- July 01, 2025. Enhanced "Vaarahi" branding with gradient text effects
+- July 01, 2025. Enhanced "Velanspaces" branding with gradient text effects
 - July 01, 2025. Added comprehensive animations across all sections (fade-in, slide-up, scale-up, bounce-in)
 - July 01, 2025. Implemented staggered animation delays for sequential element appearance
 - July 01, 2025. Added hover effects and interactive animations for enhanced user experience

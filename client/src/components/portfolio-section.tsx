@@ -6,6 +6,7 @@ import masterBedroomImg from "@assets/M.BED ROOM-2_1751394515177.jpg";
 import masterBedroom2Img from "@assets/M.BED ROOM-3_1751394515177.jpg";
 import poojaRoomImg from "@assets/pooja-1_1751394515177.jpg";
 import tvUnitImg from "@assets/t.v unit-1_1751394515178.jpg";
+import livingRoomAsset from "@assets/Living room image.jpeg";
 
 export default function PortfolioSection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -30,15 +31,9 @@ export default function PortfolioSection() {
       category: "Traditional & Sacred"
     },
     {
-      src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Modular kitchen with contemporary design",
-      title: "Modular Kitchen",
-      category: "Sleek & Efficient"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Luxury living room with modern design",
-      title: "Living Room Design",
+      src: livingRoomAsset,
+      alt: "Living room design with modern aesthetics",
+      title: "Living Room",
       category: "Luxury & Comfort"
     },
     {

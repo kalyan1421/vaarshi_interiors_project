@@ -1,84 +1,91 @@
-import { UserCheck, Check } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import AnimatedCounter from "@/components/animated-counter";
+import { smoothScrollTo } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { useEffect, useRef } from "react";
 
 export default function AboutSection() {
-  const whyChooseUsItems = [
-    {
-      title: "Complete Free Quotations",
-      description: "No hidden costs, transparent pricing for all our services"
-    },
-    {
-      title: "Quality Craftsmanship",
-      description: "Premium materials and meticulous attention to detail"
-    },
-    {
-      title: "Proven Track Record",
-      description: "17+ successful projects delivered with excellence"
-    }
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const stats = [
+    { end: 120, suffix: "+", label: "Projects Completed" },
+    { end: 90, suffix: "+", label: "Happy Clients" },
+    { end: 7, suffix: "+", label: "Years Experience" },
+    { end: 12, suffix: "+", label: "Cities Across India" }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll('.fade-in-scroll');
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="py-20 bg-soft-stone/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="font-bold text-4xl text-deep-charcoal mb-4 animate-fade-in">About Vaarahi Interiors</h2>
-          <p className="text-xl text-deep-charcoal/80 max-w-3xl mx-auto animate-slide-up animate-delay-200">
-            Led by visionary designers, we specialize in creating sophisticated spaces that blend modern aesthetics with functional excellence.
+    <section id="about" className="about-section" ref={sectionRef}>
+      <div className="container">
+        {/* Header */}
+        <div className="text-center mb-16 fade-in-scroll">
+          <h2 className="section-title">About Velanspaces Studio</h2>
+          <p className="about-intro">
+            At Velanspaces Studio, we believe every space tells a story. Founded and led by <strong>Manish</strong>,
+            our mission is to blend creativity with precision — designing interiors that balance beauty, function, and innovation.
+            From concept to completion, we turn visions into living realities that inspire and endure.
           </p>
         </div>
-        
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8 animate-slide-in-left">
-            <div className="space-y-6">
-              <h3 className="font-semibold text-2xl text-deep-charcoal animate-slide-up">Our Leadership</h3>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <Card className="hover-lift animate-scale-up animate-delay-100 hover:shadow-xl transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-soft-stone rounded-full flex items-center justify-center mb-4 animate-bounce-in animate-delay-200">
-                      <UserCheck className="w-6 h-6 text-pure-white" />
-                    </div>
-                    <h4 className="font-semibold text-lg text-deep-charcoal">Manishkumar</h4>
-                    <p className="text-deep-charcoal/70">Co-Founder & Design Director</p>
-                  </CardContent>
-                </Card>
-                <Card className="hover-lift animate-scale-up animate-delay-200 hover:shadow-xl transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-soft-stone rounded-full flex items-center justify-center mb-4 animate-bounce-in animate-delay-300">
-                      <UserCheck className="w-6 h-6 text-pure-white" />
-                    </div>
-                    <h4 className="font-semibold text-lg text-deep-charcoal">Harsha Goud</h4>
-                    <p className="text-deep-charcoal/70">Co-Founder & Project Manager</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-            
-            <div className="space-y-6 animate-slide-up animate-delay-300">
-              <h3 className="font-semibold text-2xl text-deep-charcoal">Why Choose Us</h3>
-              <div className="space-y-4">
-                {whyChooseUsItems.map((item, index) => (
-                  <div key={index} className={`flex items-start space-x-4 animate-slide-in-left animate-delay-${(index + 4) * 100} hover:bg-soft-stone/5 p-4 rounded-lg transition-all duration-300`}>
-                    <div className="w-8 h-8 bg-soft-stone rounded-full flex items-center justify-center flex-shrink-0 mt-1 animate-scale-up">
-                      <Check className="w-4 h-4 text-pure-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-deep-charcoal">{item.title}</h4>
-                      <p className="text-deep-charcoal/70">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          
-          <div className="relative animate-slide-in-right">
+
+        {/* Founder Section - Side by Side */}
+        <div className="founder-section fade-in-scroll">
+          <div className="founder-photo">
             <img 
-              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Modern minimalist living room interior" 
-              className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+              src="/assets/images/founder-manish.jpg" 
+              alt="Founder Manish - Velanspaces Studio"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal/20 to-transparent rounded-2xl hover:from-deep-charcoal/30 transition-all duration-300"></div>
           </div>
+          <div className="founder-bio">
+            <h3>Manish</h3>
+            <p className="title">Founder & Creative Director</p>
+            <blockquote>
+              "Design isn't just about style — it's about creating emotions, experiences, and timeless value."
+            </blockquote>
+            <p className="bio-text">
+              Manish leads Velanspaces with over 7 years of experience in interior design and architectural innovation.
+              His vision has shaped homes, offices, and commercial spaces across 12 cities in India, known for their
+              warmth, balance, and enduring craftsmanship.
+            </p>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="about-stats fade-in-scroll">
+          {stats.map((stat, index) => (
+            <AnimatedCounter
+              key={index}
+              end={stat.end}
+              suffix={stat.suffix}
+              label={stat.label}
+            />
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="about-cta fade-in-scroll">
+          <Button 
+            className="btn-consultation shimmer-button"
+            onClick={() => smoothScrollTo('contact')}
+          >
+            Book a Free Consultation
+          </Button>
         </div>
       </div>
     </section>

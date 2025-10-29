@@ -1,5 +1,5 @@
 import Navigation from "@/components/navigation";
-import HeroSection from "@/components/hero-section";
+import HeroSectionCinematic from "@/components/hero-section-cinematic";
 import AboutSection from "@/components/about-section";
 import ServicesSection from "@/components/services-section";
 import PortfolioSection from "@/components/portfolio-section";
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-pure-white text-deep-charcoal scroll-smooth">
       <Navigation />
-      <HeroSection />
+      <HeroSectionCinematic />
       <AboutSection />
       <ServicesSection />
       <PortfolioSection />

@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
+import { sendContactNotification } from "./sms-service";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -10,6 +11,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertContactInquirySchema.parse(req.body);
       const inquiry = await storage.createContactInquiry(validatedData);
+      
+      // Send SMS notification to business phone
+      try {
+        await sendContactNotification(validatedData);
+        console.log("📱 SMS notification sent for new inquiry");
+      } catch (smsError) {
+        console.error("SMS notification failed:", smsError);
+        // Continue with success response even if SMS fails
+      }
       
       res.status(201).json({
         success: true,

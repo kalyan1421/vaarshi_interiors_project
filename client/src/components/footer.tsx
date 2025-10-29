@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2 animate-slide-in-left">
             <div className="font-bold text-2xl mb-4 animate-slide-up">
-              <span className="text-soft-stone bg-gradient-to-r from-soft-stone to-warm-accent bg-clip-text text-transparent">Vaarahi</span> Interiors
+              <span className="text-soft-stone bg-gradient-to-r from-soft-stone to-warm-accent bg-clip-text text-transparent">Velanspaces</span> Interior and constructions
             </div>
             <p className="text-pure-white/70 mb-6 max-w-md animate-fade-in animate-delay-200">
               Transforming spaces with premium interior design solutions. Led by experienced professionals committed to quality and excellence.
@@ -83,7 +83,7 @@ export default function Footer() {
         
         <div className="border-t border-pure-white/20 mt-12 pt-8 text-center animate-fade-in animate-delay-600">
           <p className="text-pure-white/70">
-            © 2024 Vaarahi Interiors. All rights reserved. Managed by{" "}
+            © 2024 Velanspaces Interior and constructions. All rights reserved. Managed by{" "}
             <span className="text-soft-stone hover:text-warm-accent transition-colors cursor-pointer">Manishkumar</span> &{" "}
             <span className="text-soft-stone hover:text-warm-accent transition-colors cursor-pointer">Harsha Goud</span>
           </p>

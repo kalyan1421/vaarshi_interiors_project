@@ -1,101 +1,150 @@
-import { Home, Box, Calculator, Tv, Heart, Bed } from "lucide-react";
+import { Home, Briefcase, Grid, Layers, RefreshCw, Sun, Package, Lightbulb, Edit3, Compass, Wrench, Smile } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useEffect, useRef } from "react";
 
 export default function ServicesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
   const services = [
     {
       icon: Home,
-      title: "Residential Design",
-      description: "Complete home interiors including living rooms, bedrooms, kitchens, and bathrooms with modern minimalist aesthetics.",
-      badge: "13 Projects Completed",
-      featured: false
+      title: "Residential Interiors",
+      description: "Transform homes into timeless spaces that reflect your personality.",
+      link: "/services/residential"
     },
     {
-      icon: Box,
-      title: "Modular Solutions",
-      description: "Custom modular furniture and storage solutions designed for optimal functionality and contemporary style.",
-      badge: "4 Projects Completed",
-      featured: false
+      icon: Briefcase,
+      title: "Commercial Spaces",
+      description: "Functional, modern workspaces designed to enhance productivity.",
+      link: "/services/commercial"
     },
     {
-      icon: Calculator,
-      title: "Free Quotations",
-      description: "Get detailed, transparent pricing for your project with no hidden costs or obligations. Professional consultation included.",
-      badge: "100% Free Service",
-      featured: true
+      icon: Grid,
+      title: "Modular Kitchens",
+      description: "Crafted with precision, functionality, and refined finishes.",
+      link: "/services/kitchen"
     },
     {
-      icon: Tv,
-      title: "Entertainment Units",
-      description: "Custom TV units and entertainment centers with integrated storage and cable management solutions.",
-      badge: "Custom Designs",
-      featured: false
+      icon: Layers,
+      title: "Custom Furniture",
+      description: "Bespoke furniture designs tailored for your interiors.",
+      link: "/services/furniture"
     },
     {
-      icon: Heart,
-      title: "Pooja Rooms",
-      description: "Sacred spaces designed with traditional elements and modern aesthetics for spiritual harmony.",
-      badge: "Traditional & Modern",
-      featured: false
+      icon: RefreshCw,
+      title: "Renovation & Makeovers",
+      description: "Redefine your existing spaces with innovation and creativity.",
+      link: "/services/renovation"
     },
     {
-      icon: Bed,
-      title: "Master Bedrooms",
-      description: "Luxurious bedroom designs with integrated wardrobes, lighting, and sophisticated color schemes.",
-      badge: "Premium Quality",
-      featured: false
+      icon: Sun,
+      title: "Sustainable Design",
+      description: "Embrace eco-friendly and natural materials in every detail.",
+      link: "/services/sustainable"
+    },
+    {
+      icon: Package,
+      title: "Turnkey Projects",
+      description: "End-to-end design, build, and furnishing under one roof.",
+      link: "/services/turnkey"
+    },
+    {
+      icon: Lightbulb,
+      title: "Lighting & Decor",
+      description: "Elegant lighting plans that complete your design aesthetic.",
+      link: "/services/lighting"
     }
   ];
 
+  const processSteps = [
+    { icon: Edit3, label: "Consult & Concept" },
+    { icon: Compass, label: "Design & Visualize" },
+    { icon: Wrench, label: "Execute & Build" },
+    { icon: Smile, label: "Deliver & Delight" }
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll('.fade-in-scroll');
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="services" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="font-bold text-4xl text-deep-charcoal mb-4 animate-fade-in">Our Services</h2>
-          <p className="text-xl text-deep-charcoal/80 max-w-3xl mx-auto animate-slide-up animate-delay-200">
-            Comprehensive interior design solutions tailored to your unique vision and lifestyle needs.
+    <section id="services" className="services-section" ref={sectionRef}>
+      <div className="container">
+        {/* Header */}
+        <div className="text-center mb-16 fade-in-scroll">
+          <h2 className="section-title">Our Services</h2>
+          <p className="section-subtitle">
+            From concept to creation, we craft spaces that inspire.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {/* Services Grid */}
+        <div className="services-grid fade-in-scroll">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`hover-lift border transition-all duration-500 hover:shadow-2xl hover:scale-105 animate-scale-up ${
-                service.featured 
-                  ? 'bg-gradient-to-br from-soft-stone to-warm-accent text-pure-white border-soft-stone animate-pulse' 
-                  : 'bg-pure-white border-soft-stone/10 hover:border-soft-stone/30'
-              }`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="service-card group"
             >
-              <CardContent className="p-8">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 hover:scale-110 animate-bounce-in ${
-                  service.featured 
-                    ? 'bg-pure-white/20' 
-                    : 'bg-soft-stone'
-                }`} style={{ animationDelay: `${(index + 1) * 150}ms` }}>
-                  <service.icon className={`w-8 h-8 ${
-                    service.featured ? 'text-pure-white' : 'text-pure-white'
-                  }`} />
+              <CardContent className="service-card-content">
+                <div className="service-icon-wrapper">
+                  <service.icon className="service-icon" />
                 </div>
-                <h3 className={`font-semibold text-xl mb-4 animate-slide-up ${
-                  service.featured ? 'text-pure-white' : 'text-deep-charcoal'
-                }`} style={{ animationDelay: `${(index + 2) * 100}ms` }}>
-                  {service.title}
-                </h3>
-                <p className={`mb-6 animate-fade-in ${
-                  service.featured ? 'text-pure-white/90' : 'text-deep-charcoal/70'
-                }`} style={{ animationDelay: `${(index + 3) * 100}ms` }}>
-                  {service.description}
-                </p>
-                <div className={`font-semibold animate-slide-up ${
-                  service.featured ? 'text-pure-white' : 'text-soft-stone'
-                }`} style={{ animationDelay: `${(index + 4) * 100}ms` }}>
-                  {service.badge}
-                </div>
+                <h3 className="service-title">{service.title}</h3>
+                <p className="service-description">{service.description}</p>
+                <a href={service.link} className="view-more-link">
+                  View More →
+                </a>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Our Process Section */}
+        <div className="process-section fade-in-scroll">
+          <h3 className="process-title">Our Process</h3>
+          <div className="process-steps">
+            {processSteps.map((step, index) => (
+              <div key={index} className="process-step">
+                <div className="process-icon-wrapper">
+                  <step.icon className="process-icon" />
+                </div>
+                <p className="process-label">{step.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Our Philosophy Section */}
+        <div className="philosophy-section fade-in-scroll">
+          <blockquote className="philosophy-quote">
+            "We believe design should resonate emotionally, function practically, and age beautifully."
+          </blockquote>
+          <p className="philosophy-signature">– Manish, Founder & Creative Director</p>
+        </div>
+
+        {/* CTA Button */}
+        <div className="services-cta fade-in-scroll">
+          <Button 
+            className="btn-estimate shimmer-button"
+            onClick={() => window.location.href = '#contact'}
+          >
+            Get Free Estimate
+          </Button>
         </div>
       </div>
     </section>
