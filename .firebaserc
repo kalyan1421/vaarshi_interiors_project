@@ -1,7 +1,7 @@
 {
   "projects": {
-    "default": "velan-spaces--constructions",
-    "staging": "velan-spaces--constructions"
+    "default": "velan-spaces-constructions",
+    "staging": "velan-spaces-constructions"
   },
   "targets": {},
   "etags": {}

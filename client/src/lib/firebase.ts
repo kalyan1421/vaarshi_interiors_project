@@ -7,13 +7,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDPa6bMo2ndgmkvNjO5tiOso3SkbB8mvjY",
-  authDomain: "velan-spaces--constructions.firebaseapp.com",
-  projectId: "velan-spaces--constructions",
-  storageBucket: "velan-spaces--constructions.firebasestorage.app",
-  messagingSenderId: "424960610431",
-  appId: "1:424960610431:web:09a8ae5c3f2ede7c32af4a",
-  measurementId: "G-8E7MD12NC4"
+  apiKey: "AIzaSyDVjEztsxcWSN9Ilk8SeXsuj6mSXfUfN_g",
+  authDomain: "velan-spaces-constructions.firebaseapp.com",
+  projectId: "velan-spaces-constructions",
+  storageBucket: "velan-spaces-constructions.firebasestorage.app",
+  messagingSenderId: "502284969422",
+  appId: "1:502284969422:web:dddd5ab7ba5236ca8b779f",
+  measurementId: "G-4T7H6LRNFX"
 };
 
 // Initialize Firebase
